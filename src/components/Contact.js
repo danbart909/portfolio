@@ -20,9 +20,15 @@ export default function Contact() {
           width='75%'
           justifyContent='space-evenly'
         >
-          <Link href="https://www.linkedin.com/in/d-bartlett/" target="_blank"><i className="icon fab fa-linkedin fa-2x" id="linkedin-i" role="link" /></Link>
-          <Link href="https://github.com/danbart909" target="_blank"><i className="icon fab fa-github fa-2x" id="github-i" role="link" /></Link>
-          <Link href="mailto:danbart909@gmail.com" target="_blank"><i className="icon fas fa-envelope fa-2x" id="github-i" role="link" /></Link>
+          <Link href="https://www.linkedin.com/in/d-bartlett/" target="_blank">
+            <i className="icon fab fa-linkedin fa-2x" style={{ color: 'black' }} role="link" />
+          </Link>
+          <Link href="https://github.com/danbart909" target="_blank">
+            <i className="icon fab fa-github fa-2x" style={{ color: 'black' }} role="link" />
+          </Link>
+          <Link href="mailto:danbart909@gmail.com" target="_blank">
+            <i className="icon fas fa-envelope fa-2x" style={{ color: 'black' }} role="link" />
+          </Link>
         </Row>
         <Row>Or, you could just use the form below to send me an email directly.</Row>
       </Col>

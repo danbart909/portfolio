@@ -19,7 +19,7 @@ export default function Projects() {
       liveLink: 'https://play.google.com/store/apps/details?id=com.wrkr&hl=en&gl=US',
       apple: 'https://apps.apple.com/us/app/wrkrs/id1612568158',
       github: null,
-      description: 'This is an app designed to connect youth with their community by meeting any needs its members may have. Homeowners, or anyone needing assistance with any work they might have, can post jobs that people can then apply to offer their assistance.',
+      description: 'This is an app designed to connect youth with their community by meeting any needs its members may have. Homeowners, or anyone needing assistance with any work they might have, can post jobs that people can then apply to offer their assistance. Listed as "wrkrs" in the Apple Store.',
       technologies: 'React Native, Javascript, Expo',
       img1: wrkr1,
       img2: wrkr2
@@ -71,6 +71,7 @@ export default function Projects() {
           onClick={() => setTab(x)}
           border='1px solid'
           style={tab === x ? style1 : null}
+          sx={{ '&:hover': style1 }}
         >
           {x === 'happywife' ? 'Happy Wife' :
           x === 'turtlerace' ? 'Turtle Race!' : x}
@@ -159,6 +160,7 @@ export default function Projects() {
               <Link href={projects[tab].liveLink} target='_blank'>
                 <i
                   className={tab === 'happywife' ? 'fas fa-globe' : 'fas fa-play'}
+                  style={{ color: 'black' }}
                   role='link'
                 />
               </Link>
@@ -170,6 +172,7 @@ export default function Projects() {
               <Link href={projects[tab].github} target='_blank'>
                 <i
                   className="fab fa-github"
+                  style={{ color: 'black' }}
                   role='link'
                 />
               </Link>
