@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import { Row, Col } from './helper'
 import { Link } from '@mui/material'
+import wrkr1 from '../images/wrkr1.jpg'
+import wrkr2 from '../images/wrkr2.jpg'
+import happywife1 from '../images/happywife1.jpg'
+import turtlerace1 from '../images/turtlerace1.jpg'
+import turtlerace2 from '../images/turtlerace2.jpg'
+import pollbooth1 from '../images/pollbooth1.jpg'
+import pollbooth2 from '../images/pollbooth2.jpg'
 
 export default function Projects() {
   const [tab, setTab] = useState('wrkr')
@@ -12,50 +19,61 @@ export default function Projects() {
       liveLink: 'https://play.google.com/store/apps/details?id=com.wrkr&hl=en&gl=US',
       apple: 'https://apps.apple.com/us/app/wrkrs/id1612568158',
       github: null,
-      // description: 'This is an app designed to connect youth with their community by meeting any needs its members may have. Homeowners, or anyone needing assistance with any work they might have, can post jobs that people can then apply to offer their assistance. All meetings occur outside the app itself - it simply provides preliminary information for a job to an inquiring public. Therefore, all financial matters are handled outside the app as well. People who post jobs will be able to set any price they are willing to pay for the work they need done, but any financial transactions must be handled independently among all involved parties.',
-      description: 'wrkr description',
-      technologies: 'React Native, Javascript, Expo'
+      description: 'This is an app designed to connect youth with their community by meeting any needs its members may have. Homeowners, or anyone needing assistance with any work they might have, can post jobs that people can then apply to offer their assistance.',
+      technologies: 'React Native, Javascript, Expo',
+      img1: wrkr1,
+      img2: wrkr2
     },
     happywife: {
       title: `Happy Wife Junk Service`,
       liveLink: "http://happywifejunk.com",
       apple: null,
       github: `https://github.com/danbart909/newhappywife`,
-      description: 'This is the website for Happy Wife Junk Service, made with React. It has information about the areas they service, the kind of junk they remove, how they operate, pricing information, contact information, as well as a form to send the owners a direct email.',
-      technologies: 'React, JavaScript, HTML, CSS'
+      description: 'This is the website for Happy Wife Junk Service. It has information about the areas they service, the kind of junk they remove, how they operate, pricing information, contact information, as well as a form to send the owners a direct email.',
+      technologies: 'React, JavaScript, HTML, CSS',
+      img1: happywife1,
+      img2: null
     },
     pollbooth: {
       title: 'pollbooth',
       liveLink: "https://play.google.com/store/apps/details?id=com.pollbooth",
       apple: null,
       github: 'https://github.com/danbart909/voteapp',
-      // description: 'PollBooth is an app on the Google Play store made using React Native and uses Expo for workflow management. It lets users find those who represent them in the federal and state government and give them a rating once a day. You can then search and view a graph of any representative on the Data page and see how others have rated them as well. Traditional political polls involve a sample size of thousands of people to represent a country of hundreds of millions, but this app provides a way for anyone to participate in unofficial political polls and view the results as they happen.',
-      description: 'pollbooth description',
-      technologies: 'React Native, JavaScript, Expo, postgresSQL, node.js, knex.js'
+      description: 'PollBooth lets users find those who represent them in the federal and state government and allows a rating once a day. You can then search and view a graph of any representative on the Data page and see how others have rated them as well.',
+      technologies: 'React Native, JavaScript, Expo, postgresSQL, node.js, knex.js',
+      img1: pollbooth1,
+      img2: pollbooth2
     },
     turtlerace: {
       title: 'Turtle Race!',
       liveLink: 'https://play.google.com/store/apps/details?id=com.turtlerace&hl=en&gl=US',
       apple: null,
       github: null,
-      description: "Very simple app to kill some time with. Start with $50 and choose 1 of 4 turtles to wager on, then press Start. If you hit 0, you'll restart with $50.",
-      technologies: 'React Native, JavaScript, Expo'
+      description: "Very simple game to kill some time with. Start with $50 and choose 1 of 4 turtles to wager on, then press Start. If you hit 0, you'll restart with $50.",
+      technologies: 'React Native, JavaScript, Expo',
+      img1: turtlerace1,
+      img2: turtlerace2
     }
   }
 
   const tabBar = () => {
     const html = []
+    const style1 = {
+      backgroundColor: 'black',
+      color: 'white'
+    }
     tabs.forEach(x => {
       html.push(
         <Row
           flex='1'
           justifyContent='center'
           alignItems='center'
-          color='white'
           onClick={() => setTab(x)}
           border='1px solid'
+          style={tab === x ? style1 : null}
         >
-          {x}
+          {x === 'happywife' ? 'Happy Wife' :
+          x === 'turtlerace' ? 'Turtle Race!' : x}
         </Row>)
     })
 
@@ -71,15 +89,36 @@ export default function Projects() {
       <Row
         height='10%'
         width='100%'
-        backgroundColor='black'
+        backgroundColor='white'
       >{tabBar()}</Row>
       <Row
         flex='1'
       >
         <Row
           flex='2'
+          alignItems='center'
+          justifyContent='space-evenly'
           border='1px solid'
-        >???</Row>
+        >
+          { tab === 'happywife' ?
+          <Row
+            component='img'
+            src={projects[tab].img1}
+            width='100%'
+          /> :
+          <>
+            <Row
+              component='img'
+              src={projects[tab].img1}
+              height='30vw'
+            />
+            <Row
+              component='img'
+              src={projects[tab].img2}
+              height='30vw'
+            />
+          </> }
+        </Row>
         <Col
           flex='1'
           border='1px solid'
@@ -88,6 +127,7 @@ export default function Projects() {
             flex='1'
             justifyContent='center'
             alignItems='center'
+            textAlign='center'
             borderBottom='1px solid'
           >{projects[tab].title}</Row>
           <Row
