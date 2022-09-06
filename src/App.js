@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Col } from './components/helper'
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useLocation } from "react-router-dom"
+import { useSpring, animated } from 'react-spring'
 import Home from './components/Home'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 
 export default function App() {
   const [view, setView] = useState('home')
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname === '/projects') setView('projects')
+    else if (location.pathname === '/contact') setView('contact')
+  }, [location.pathname])
+
+  const animProps = [
+    // useSpring({to: { opacity: 1 }, from: { opacity: 0 }, reset: true}),
+    useSpring({to: { x: 0 }, from: { x: -500 }, reset: true}),
+    useSpring({to: { y: 0 }, from: { y: 500 }, reset: true}),
+    useSpring({to: { y: 0 }, from: { y: -500 }, reset: true})
+  ]
+
+  const randomNum = Math.floor(Math.random() * (2 - 0 + 1) ) + 0;
 
   const HomeButtons = () => {
     return <>
@@ -17,6 +34,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid blue'
+          color='black'
           onClick={() => setView('projects')}
         >Projects</Row>
       </Link>
@@ -27,6 +45,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid green'
+          color='black'
           onClick={() => setView('contact')}
         >Contact</Row>
       </Link>
@@ -42,6 +61,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid red'
+          color='black'
           onClick={() => setView('home')}
         >Home</Row>
       </Link>
@@ -52,6 +72,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid green'
+          color='black'
           onClick={() => setView('contact')}
         >Contact</Row>
       </Link>
@@ -67,6 +88,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid red'
+          color='black'
           onClick={() => setView('home')}
         >Home</Row>
       </Link>
@@ -77,6 +99,7 @@ export default function App() {
         <Row
           p='2vw 5vw'
           border='3px solid blue'
+          color='black'
           onClick={() => setView('projects')}
         >Projects</Row>
       </Link>
@@ -94,9 +117,11 @@ export default function App() {
         color='white'
         borderBottom='1px solid'
       >
-        {view === 'home' ? 'My name is Dan Bartlett' :
-        view === 'projects' ? 'Projects' :
-        view === 'contact' ? 'Contact' : null}
+        <animated.div style={animProps[randomNum]}>
+          {view === 'home' ? 'My name is Dan Bartlett' :
+          view === 'projects' ? 'Projects' :
+          view === 'contact' ? 'Contact' : null}
+        </animated.div>
       </Row>
       <Row
         height='75vh'

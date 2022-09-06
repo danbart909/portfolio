@@ -60,21 +60,35 @@ export default function Projects() {
     const html = []
     const style1 = {
       backgroundColor: 'black',
-      color: 'white'
+      color: 'white',
+      transition: '.5s'
     }
     tabs.forEach(x => {
       html.push(
         <Row
           flex='1'
+          key={x}
           justifyContent='center'
           alignItems='center'
           onClick={() => setTab(x)}
           border='1px solid'
-          style={tab === x ? style1 : null}
-          sx={{ '&:hover': style1 }}
+          style={tab === x ? style1 : {transition: '.5s'}}
+          sx={{ '&:hover': {
+            ...style1,
+            borderTop: '10px solid white',
+            borderBottom: '10px solid white'
+          } }}
         >
-          {x === 'happywife' ? 'Happy Wife' :
-          x === 'turtlerace' ? 'Turtle Race!' : x}
+          <Row
+            style={{ transition: '.5s' }}
+            sx={{ '&:hover': {
+              borderBottom: '2px solid white',
+              padding: '0 0 5px 0'
+            } }}
+          >
+            {x === 'happywife' ? 'Happy Wife' :
+            x === 'turtlerace' ? 'Turtle Race!' : x}
+          </Row>
         </Row>)
     })
 
