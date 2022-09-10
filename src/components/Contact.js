@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from './helper'
 import { TextField, Button, Link } from '@mui/material'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
 
@@ -8,7 +9,7 @@ export default function Contact() {
     <Col
       flex='2'
       m='0 0 0 3vw'
-      border='2px solid green'
+      border='2px solid rgb(50, 113, 25)'
     >
       <Col
         p='4vh'
@@ -21,13 +22,19 @@ export default function Contact() {
           justifyContent='space-evenly'
         >
           <Link href="https://www.linkedin.com/in/d-bartlett/" target="_blank">
-            <i className="icon fab fa-linkedin fa-2x" style={{ color: 'black' }} role="link" />
+            <motion.div whileHover={{ scale: 1.3 }}>
+              <i className="icon fab fa-linkedin fa-2x" style={{ color: 'black' }} role="link" />
+            </motion.div>
           </Link>
           <Link href="https://github.com/danbart909" target="_blank">
-            <i className="icon fab fa-github fa-2x" style={{ color: 'black' }} role="link" />
+            <motion.div whileHover={{ scale: 1.3 }}>
+              <i className="icon fab fa-github fa-2x" style={{ color: 'black' }} role="link" />
+            </motion.div>
           </Link>
           <Link href="mailto:danbart909@gmail.com" target="_blank">
-            <i className="icon fas fa-envelope fa-2x" style={{ color: 'black' }} role="link" />
+            <motion.div whileHover={{ scale: 1.3 }}>
+              <i className="icon fas fa-envelope fa-2x" style={{ color: 'black' }} role="link" />
+            </motion.div>
           </Link>
         </Row>
         <Row>Or, you could just use the form below to send me an email directly.</Row>

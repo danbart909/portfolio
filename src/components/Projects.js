@@ -99,7 +99,7 @@ export default function Projects() {
     <Col
       flex='2'
       m='0 0 0 3vw'
-      border='2px solid blue'
+      border='2px solid rgb(25, 51, 113)'
     >
       <Row
         height='10%'
