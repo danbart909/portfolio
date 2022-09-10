@@ -28,7 +28,6 @@ export default function Top(view) {
       borderBottom='1px solid'
     >
       <motion.div
-        layout
         initial={titleValues[randomNum(0, 2)]}
         animate={{ y: 0, x: 0 }}
         whileTap={titleValues2}
