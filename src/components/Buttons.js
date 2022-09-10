@@ -32,8 +32,8 @@ export default function Buttons(view) {
           whileHover={{
             ...topHover,
             color: 'white',
-            rotate: 360,
-            scale: 1.6
+            // rotate: 360,
+            // scale: 1.6
           }}
           transition={{ duration: .3 }}
         >{x === 'home' ? 'Projects' : 'Home'}</motion.div>
@@ -51,8 +51,8 @@ export default function Buttons(view) {
           whileHover={{
             ...botHover,
             color: 'white',
-            rotate: -360,
-            scale: 1.6
+            // rotate: -360,
+            // scale: 1.6
           }}
           transition={{ duration: .3 }}
         >{x === 'contact' ? 'Projects' : 'Contact'}</motion.div>
