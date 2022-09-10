@@ -6,8 +6,16 @@ import { motion } from 'framer-motion'
 export default function Buttons(view) {
   const x = view.view
 
-  const topHover = x === 'home' ? {backgroundColor: 'rgb(25, 51, 113)'} : {backgroundColor: 'rgb(113, 25, 25)'}
-  const botHover = x === 'contact' ? {backgroundColor: 'rgb(25, 51, 113)'} : {backgroundColor: 'rgb(50, 113, 25)'}
+  const topHover = x === 'home' ? {
+    backgroundColor: 'rgb(25, 51, 113)'
+  } : {
+    backgroundColor: 'rgb(113, 25, 25)'
+  }
+  const botHover = x === 'contact' ? {
+    backgroundColor: 'rgb(25, 51, 113)'
+  } : {
+    backgroundColor: 'rgb(50, 113, 25)'
+  }
 
   return (
     <>
@@ -23,9 +31,11 @@ export default function Buttons(view) {
           }}
           whileHover={{
             ...topHover,
-            color: 'white'
+            color: 'white',
+            rotate: 360,
+            scale: 1.6
           }}
-          transition={{ duration: .5 }}
+          transition={{ duration: .3 }}
         >{x === 'home' ? 'Projects' : 'Home'}</motion.div>
       </Link>
       <Link
@@ -40,9 +50,11 @@ export default function Buttons(view) {
           }}
           whileHover={{
             ...botHover,
-            color: 'white'
+            color: 'white',
+            rotate: -360,
+            scale: 1.6
           }}
-          transition={{ duration: .5 }}
+          transition={{ duration: .3 }}
         >{x === 'contact' ? 'Projects' : 'Contact'}</motion.div>
       </Link>
     </>
