@@ -24,17 +24,8 @@ export default function Buttons(view) {
           whileHover={{
             ...topHover,
             color: 'white'
-            // scale: [1, 1.2, 1.4, 1, 1],
-            // rotate: [0, 0, 270, -270, 0],
-            // borderRadius: ["0%", "0%", "50%", "50%", "0%"]
           }}
-          transition={{
-            duration: 1,
-            // ease: "easeInOut",
-            // times: [0, 0.2, 0.5, 0.8, 1],
-            // repeat: Infinity,
-            // repeatDelay: 1
-          }}
+          transition={{ duration: .5 }}
         >{x === 'home' ? 'Projects' : 'Home'}</motion.div>
       </Link>
       <Link
@@ -51,7 +42,7 @@ export default function Buttons(view) {
             ...botHover,
             color: 'white'
           }}
-          transition={{ duration: 1 }}
+          transition={{ duration: .5 }}
         >{x === 'contact' ? 'Projects' : 'Contact'}</motion.div>
       </Link>
     </>
