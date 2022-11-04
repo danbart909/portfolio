@@ -21,11 +21,9 @@ export default function Top(view) {
     <Row
       height='12vh'
       p='0 0 2vw 2vw'
-      m='0 0 2vw 0'
       alignItems='flex-end'
       backgroundColor='black'
-      color='white'
-      borderBottom='1px solid'
+      // color='white'
     >
       <motion.div
         initial={titleValues[randomNum(0, 2)]}

@@ -72,19 +72,24 @@ export default function Projects() {
           alignItems='center'
           onClick={() => setTab(x)}
           border='1px solid'
-          style={tab === x ? style1 : {transition: '.5s'}}
-          sx={{ '&:hover': {
-            ...style1,
-            borderTop: '10px solid white',
-            borderBottom: '10px solid white'
+          style={tab === x ? style1 : { transition: '.5s' }}
+          sx={{
+            '&:hover': {
+              ...style1,
+              borderTop: '12px solid white',
+              borderBottom: '12px solid white',
           } }}
         >
           <Row
-            style={{ transition: '.5s' }}
-            sx={{ '&:hover': {
-              borderBottom: '2px solid white',
-              padding: '0 0 5px 0'
-            } }}
+            style={tab === x ? style1 : { transition: '.5s' }}
+            height='100%'
+            flex='1'
+            justifyContent='center'
+            alignItems='center'
+            sx={{
+              color: 'black',
+              '&:hover': { ...style1 }
+            }}
           >
             {x === 'happywife' ? 'Happy Wife' :
             x === 'turtlerace' ? 'Turtle Race!' : x}
@@ -96,11 +101,7 @@ export default function Projects() {
   }
 
   return (
-    <Col
-      flex='2'
-      m='0 0 0 3vw'
-      border='2px solid rgb(25, 51, 113)'
-    >
+    <>
       <Row
         height='10%'
         width='100%'
@@ -120,17 +121,20 @@ export default function Projects() {
             component='img'
             src={projects[tab].img1}
             width='100%'
+            boxShadow='0 0 20px rgba(0, 0, 0, .35)'
           /> :
           <>
             <Row
               component='img'
               src={projects[tab].img1}
               height='30vw'
+              boxShadow='0 0 20px rgba(0, 0, 0, .35)'
             />
             <Row
               component='img'
               src={projects[tab].img2}
               height='30vw'
+              boxShadow='0 0 20px rgba(0, 0, 0, .35)'
             />
           </> }
         </Row>
@@ -174,7 +178,7 @@ export default function Projects() {
               <Link href={projects[tab].liveLink} target='_blank'>
                 <i
                   className={tab === 'happywife' ? 'fas fa-globe' : 'fas fa-play'}
-                  style={{ color: 'black' }}
+                  style={{ color: 'white' }}
                   role='link'
                 />
               </Link>
@@ -186,7 +190,7 @@ export default function Projects() {
               <Link href={projects[tab].github} target='_blank'>
                 <i
                   className="fab fa-github"
-                  style={{ color: 'black' }}
+                  style={{ color: 'white' }}
                   role='link'
                 />
               </Link>
@@ -194,6 +198,6 @@ export default function Projects() {
           </Col>
         </Col>
       </Row>
-    </Col>
+    </>
   );
 }

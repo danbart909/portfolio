@@ -1,87 +1,138 @@
 import React from 'react'
 import { Row, Col } from './helper'
-import { TextField, Button, Link } from '@mui/material'
+import { TextField, Button, Link, createTheme, ThemeProvider } from '@mui/material'
 import { motion } from 'framer-motion'
 
 export default function Contact() {
 
+  const theme = createTheme({
+    palette: {
+      primary: { main: '#ffffff' },
+      secondary: { main: '#ffffff' },
+      text: { primary: '#ffffff' },
+    }
+  })
+
   return (
-    <Col
-      flex='2'
-      m='0 0 0 3vw'
-      border='2px solid rgb(50, 113, 25)'
-    >
+    <>
       <Col
-        p='4vh'
-        gap='4vh'
+        m='4vh 0'
+        gap='3vh'
         alignItems='center'
       >
-        <Row>I have accounts on LinkedIn and GitHub. I even have email, too!</Row>
+        <Row
+          p='0 10vw'
+          textAlign='center'
+        >I have accounts on LinkedIn and Github, but for communication I would prefer email. I even have a form below to make it easy on you.</Row>
         <Row
           width='75%'
+          p='2vh 0 0 0'
           justifyContent='space-evenly'
         >
           <Link href="https://www.linkedin.com/in/d-bartlett/" target="_blank">
             <motion.div whileHover={{ scale: 1.3 }}>
-              <i className="icon fab fa-linkedin fa-2x" style={{ color: 'black' }} role="link" />
+              <i className="icon fab fa-linkedin fa-2x" style={{ color: 'white' }} role="link" />
             </motion.div>
           </Link>
           <Link href="https://github.com/danbart909" target="_blank">
             <motion.div whileHover={{ scale: 1.3 }}>
-              <i className="icon fab fa-github fa-2x" style={{ color: 'black' }} role="link" />
+              <i className="icon fab fa-github fa-2x" style={{ color: 'white' }} role="link" />
             </motion.div>
           </Link>
           <Link href="mailto:danbart909@gmail.com" target="_blank">
             <motion.div whileHover={{ scale: 1.3 }}>
-              <i className="icon fas fa-envelope fa-2x" style={{ color: 'black' }} role="link" />
+              <i className="icon fas fa-envelope fa-2x" style={{ color: 'white' }} role="link" />
             </motion.div>
           </Link>
         </Row>
-        <Row>Or, you could just use the form below to send me an email directly.</Row>
       </Col>
 
-      <Row
-        // height='100%'
-        component='form'
-        action="https://formspree.io/xknqpjya"
-        method="POST"
-        justifyContent='center'
-      >
-        <Col
-          component='fieldset'
-          width='80%'
-          gap='2vw'
+      <ThemeProvider theme={ theme }>
+        <Row
+          // height='100%'
+          component='form'
+          action="https://formspree.io/xknqpjya"
+          method="POST"
           justifyContent='center'
-          border='none'
         >
-          <TextField
-            label='name'
-            name='name'
-            required
-          />
-          <TextField
-            label='email'
-            name='email'
-            required
-            type='email'
-          />
-          <TextField
-            label='form'
-            name='content'
-            placeholder="email goes here"
-            required
-            multiline
-            rows='5'
-          />
-          <Button
-            component='label'
-            variant='outlined'
+          <Col
+            component='fieldset'
+            width='80%'
+            gap='1vw'
+            justifyContent='center'
+            border='none'
           >
-            Send Email
-            <input hidden type='submit' name='send' />
-          </Button>
-        </Col>
-      </Row>
-    </Col>
+            <Row
+              justifyContent='space-between'
+            >
+              <Col
+                gap='.5vw'
+                width='48%'
+              >
+                <Row>Name</Row>
+                <TextField
+                  // label='Name'
+                  name='name'
+                  required
+                  sx={{
+                    backgroundColor: 'black',
+                    borderRadius: 2,
+                    border: '1px solid #ffffff'
+                  }}
+                />
+              </Col>
+              <Col
+                gap='.5vw'
+                width='48%'
+              >
+                <Row>Email Address</Row>
+                <TextField
+                  // label='Email'
+                  name='email'
+                  type='email'
+                  required
+                  sx={{
+                    backgroundColor: 'black',
+                    borderRadius: 2,
+                    border: '1px solid #ffffff'
+                  }}
+                />
+              </Col>
+            </Row>
+            <Col gap='.5vw'>
+              <Row>Your Message</Row>
+              <TextField
+                // label='Form'
+                name='content'
+                // placeholder="Type Your Email Here"
+                required
+                multiline
+                rows='8'
+                sx={{
+                  backgroundColor: 'black',
+                  borderRadius: 2,
+                  border: '1px solid #ffffff'
+                }}
+              />
+            </Col>
+            <Button
+              component='label'
+              variant='outlined'
+              sx={{
+                borderColor: 'white',
+                color: 'white',
+                margin: '2vh 0 0 0',
+                '&:hover': {
+                  backgroundColor: 'black'
+                }
+              }}
+            >
+              Send Email
+              <input hidden type='submit' name='send' />
+            </Button>
+          </Col>
+        </Row>
+      </ThemeProvider>
+    </>
   );
 }

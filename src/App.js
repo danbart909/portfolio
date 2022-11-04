@@ -9,18 +9,31 @@ import Buttons from './components/Buttons'
 
 export default function App() {
   return (
-    <>
+    <Col
+      height='100vh'
+    >
       <Routes>
         <Route path='/' element={<Top view={'home'} />} />
         <Route path='projects' element={<Top view={'projects'} />} />
         <Route path='contact' element={<Top view={'contact'} />} />
       </Routes>
-      <Row height='75vh'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='projects' element={<Projects />} />
-          <Route path='contact' element={<Contact />} />
-        </Routes>
+      <Row
+        height='100%'
+        p='4vh 0'
+        style={{ background: `linear-gradient(225deg, #f107a3, #a21561, #7b2ff7)` }}
+      >
+        <Col
+          flex='2'
+          m='0 0 0 3vw'
+          border='2px solid white'
+          boxShadow='0 0 20px rgba(0, 0, 0, .35)'
+        >
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='projects' element={<Projects />} />
+            <Route path='contact' element={<Contact />} />
+          </Routes>
+        </Col>
         <Col
           flex='1'
           justifyContent='space-evenly'
@@ -33,7 +46,7 @@ export default function App() {
           </Routes>
         </Col>
       </Row>
-    </>
+    </Col>
   );
 }
 

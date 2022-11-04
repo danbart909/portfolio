@@ -1,21 +1,10 @@
 import React from 'react'
-// import { Row } from './helper'
+import { Row } from './helper'
 import { Link } from "react-router-dom"
-import { motion } from 'framer-motion'
+import { Button } from '@mui/material'
 
 export default function Buttons(view) {
   const x = view.view
-
-  const topHover = x === 'home' ? {
-    backgroundColor: 'rgb(25, 51, 113)'
-  } : {
-    backgroundColor: 'rgb(113, 25, 25)'
-  }
-  const botHover = x === 'contact' ? {
-    backgroundColor: 'rgb(25, 51, 113)'
-  } : {
-    backgroundColor: 'rgb(50, 113, 25)'
-  }
 
   return (
     <>
@@ -23,39 +12,41 @@ export default function Buttons(view) {
         to={x === 'home' ? '/projects' : '/'}
         style={{ textDecoration: 'none' }}
       >
-        <motion.div
-          style={{
-            padding: '2vw 5vw',
-            border: x === 'home' ? '3px solid rgb(25, 51, 113)' : '3px solid rgb(113, 25, 25)',
-            color: x === 'home' ? 'rgb(25, 51, 113)' : 'rgb(113, 25, 25)'
-          }}
-          whileHover={{
-            ...topHover,
-            color: 'white',
-            // rotate: 360,
-            // scale: 1.6
-          }}
-          transition={{ duration: .3 }}
-        >{x === 'home' ? 'Projects' : 'Home'}</motion.div>
+        <Button>
+          <Row
+            border='3px solid white'
+            height='15vh'
+            width='15vw'
+            justifyContent='center'
+            alignItems='center'
+            style={{ transition: '.5s' }}
+            boxShadow='0 0 20px rgba(0, 0, 0, .35)'
+            sx={{
+              textShadow: '4px 4px 8px #000000',
+              '&:hover': { backgroundColor: 'black' }
+            }}
+          >{x === 'home' ? 'Projects' : 'Home'}</Row>
+        </Button>
       </Link>
       <Link
         to={x === 'contact' ? '/projects' : '/contact'}
         style={{ textDecoration: 'none' }}
       >
-        <motion.div
-          style={{
-            padding: '2vw 5vw',
-            border: x === 'contact' ? '3px solid rgb(25, 51, 113)' : '3px solid rgb(50, 113, 25)',
-            color: x === 'contact' ? 'rgb(25, 51, 113)' : 'rgb(50, 113, 25)'
-          }}
-          whileHover={{
-            ...botHover,
-            color: 'white',
-            // rotate: -360,
-            // scale: 1.6
-          }}
-          transition={{ duration: .3 }}
-        >{x === 'contact' ? 'Projects' : 'Contact'}</motion.div>
+        <Button>
+          <Row
+            border='3px solid white'
+            height='15vh'
+            width='15vw'
+            justifyContent='center'
+            alignItems='center'
+            style={{ transition: '.5s' }}
+            boxShadow='0 0 20px rgba(0, 0, 0, .35)'
+            sx={{
+              textShadow: '4px 4px 8px #000000',
+              '&:hover': { backgroundColor: 'black' }
+            }}
+          >{x === 'contact' ? 'Projects' : 'Contact'}</Row>
+        </Button>
       </Link>
     </>
   )
